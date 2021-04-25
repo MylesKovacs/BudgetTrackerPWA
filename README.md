@@ -11,7 +11,7 @@
 
 ## Local installation:
 * npm install
-* npm run start
+* npm start
 
 ## Built with These Tools
 * JavaScript, HTML,

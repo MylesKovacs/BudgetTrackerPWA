@@ -12,7 +12,7 @@ request.onsuccess = function (event) {
     db = event.target.result;
 
     if (navigator.online) {
-        uploadChange();
+        uploadTransaction();
     }
 };
 
@@ -26,10 +26,10 @@ function saveRecord(record) {
     transactionObjectStore.add(record);
 }
 
-function uploadChange() {
-    const transaction = db.transaction('new_entry', 'readwrite');
-    const budgetObjectStore = transaction.objectStore('new_entry');
-    const getAll = budgetObjectStore.getAll();
+function uploadTransaction() {
+    const transaction = db.transaction('new_transaction', 'readwrite');
+    const transactionObjectStore = transaction.objectStore('new_transaction');
+    const getAll = transactionObjectStore.getAll();
 
     getAll.onsuccess = function () {
         if (getAll.result.length > 0) {
@@ -61,4 +61,4 @@ function uploadChange() {
 };
 
 
-window.addEventListener('online', uploadChange);
+window.addEventListener('online', uploadTransaction);
